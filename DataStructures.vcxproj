@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\Point\Point.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\Point\Point.h" />
     <ClInclude Include="PQueue.h" />
     <ClInclude Include="Sorting.h" />
   </ItemGroup>
