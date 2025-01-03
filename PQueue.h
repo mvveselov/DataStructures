@@ -11,7 +11,7 @@ public:
 	PQueue() { n = 0; }
 	void enqueue(T e);
 	void dequeue();
-	const T front() const { return *arr; }
+	const T front() const { return arr[0]; }
 	void print() {
 		for (int i = 0; i < n; i++)
 			cout << arr[i] << ' ';
