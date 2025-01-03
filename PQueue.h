@@ -2,10 +2,11 @@
 #include <iostream>
 using namespace std;
 
-template <class T, int capacity>
+template <class T, int capacity, typename Compare>
 class PQueue {
-	T arr[capacity]{};
+	T arr[capacity];
 	int n;
+	Compare compare;
 public:
 	PQueue() { n = 0; }
 	void enqueue(T e);
@@ -17,13 +18,27 @@ public:
 		cout << endl;
 	}
 	int size() { return n; }
-
+	
 };
 
-template <class T, int capacity>
-void PQueue<T, capacity>::enqueue(T e) {
+
+
+template <class T, int capacity, typename Compare>
+void PQueue<T, capacity, Compare>::dequeue() {
+	if (n == 0)
+		return;
+	for (int i = 0; i < n - 1; i++)
+		arr[i] = arr[i + 1];
+	n--;
+}
+
+//comparison rule is not necessaryly can be done using boolean operators, but also with comparison object
+//in this case, there is no need for operator< overloaded in user class
+
+template <class T, int capacity,typename Compare>
+void PQueue<T, capacity, Compare>::enqueue(T e) {
 	if (n == capacity) {
-		if (arr[n - 1] < e)
+		if (compare(arr[n - 1], e))
 			return;
 	}
 	else
@@ -32,7 +47,7 @@ void PQueue<T, capacity>::enqueue(T e) {
 	int i{};
 	i = n - 2;
 
-	while (i >= 0 && e < arr[i]) {
+	while (i >= 0 && compare(e , arr[i])) {
 		arr[i + 1] = arr[i];
 		i--;
 	}
@@ -40,11 +55,3 @@ void PQueue<T, capacity>::enqueue(T e) {
 	arr[i + 1] = e;
 }
 
-template <class T, int capacity>
-void PQueue<T, capacity>::dequeue() {
-	if (n == 0)
-		return;
-	for (int i = 0; i < n - 1; i++)
-		arr[i] = arr[i + 1];
-	n--;
-}
