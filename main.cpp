@@ -41,4 +41,16 @@ void main() {
 
 	pq.print();
 
+
+	//using with integral types
+	//specify comparison with standart classes std::less<T>, std::greater<T>
+	//approach doesn't suppose using operator< in PQueue class
+
+	PQueue<int, 4, std::greater<int>> pqstandart;
+	pqstandart.enqueue(2);
+	pqstandart.enqueue(0);
+	pqstandart.enqueue(3);
+
+	pqstandart.print();
+
 }
