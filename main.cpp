@@ -1,6 +1,7 @@
 #include <iostream>
 #include "PQueue.h"
 #include "C:\\Users\\vesel\\source\\repos\\classes\\point\\Point.h"
+#include <queue>
 using namespace std;
 
 class LeftRight {
@@ -52,5 +53,20 @@ void main() {
 	pqstandart.enqueue(3);
 
 	pqstandart.print();
+
+	cout << "Using std::priority queue" << endl;
+
+	std::priority_queue<Point, std::vector<Point>, UpDown> q;
+
+	q.push(Point{10,20});
+	q.push({20,30});
+	q.push({100,20});
+	while (!q.empty()) {
+		cout << q.top() << endl;
+		q.pop();
+	}
+
+
+
 
 }
