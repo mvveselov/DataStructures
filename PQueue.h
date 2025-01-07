@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 template <class T, int capacity, typename Compare>
@@ -9,6 +10,18 @@ class PQueue {
 	Compare compare;
 public:
 	PQueue() { n = 0; }
+	PQueue(const initializer_list<T>& list) {
+		n = 0;
+		for (auto& e : list) {
+			enqueue(e);
+		}
+
+		/*n = 0;
+		for (auto& elem : list) {
+			cout << "Elem: " << elem << " printed\n";
+			arr[n++] = elem;
+		}*/
+	}
 	void enqueue(T e);
 	void dequeue();
 	const T front() const { return arr[0]; }

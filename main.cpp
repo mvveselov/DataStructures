@@ -61,12 +61,16 @@ void main() {
 	q.push(Point{10,20});
 	q.push({20,30});
 	q.push({100,20});
+
 	while (!q.empty()) {
 		cout << q.top() << endl;
 		q.pop();
 	}
 
+	cout << "Testing initialiser list priority queue object" << endl;
+	PQueue<int, 10, less<int>> initpq{2,3,0,2,5};
 
+	initpq.print();
 
 
 }
