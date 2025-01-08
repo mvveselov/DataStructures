@@ -73,4 +73,25 @@ void main() {
 	initpq.print();
 
 
+	cout << "Composition method demostration" << endl;
+
+	priority_queue<pair<Point, int>> compq;
+	compq.push({ Point{10,20}, 10 });
+	compq.push({ Point{20,10}, 5 });
+	compq.push({ Point{1,2}, 7 });
+
+	while (!compq.empty()) {
+		cout << compq.top().first << endl;
+		compq.pop();
+	}
+
+	/*
+		pair(e,k); e - element(data), k - key(priority ordering object)
+		page 325 Data Structures, Chapter 8
+		"Each key object defines its own comparison function."
+		"The key part doesn't need to depend on element part"
+		"Studied at Chapter 9 in more details"
+	*/
+
+
 }
