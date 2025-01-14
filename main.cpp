@@ -1,6 +1,7 @@
 #include <iostream>
 #include "PQueue.h"
-#include "C:\\Users\\vesel\\source\\repos\\classes\\point\\Point.h"
+#include "Point.h"
+#include "LinkedLIst.h"
 #include <queue>
 using namespace std;
 
@@ -92,6 +93,18 @@ void main() {
 		"The key part doesn't need to depend on element part"
 		"Studied at Chapter 9 in more details"
 	*/
+
+	// Linked List
+
+	std::cout << "Linked List test" << std::endl;
+
+	
+	LinkedList list;
+
+	list.addToHead(10);
+	list.addToHead(20);
+
+	list.Show();
 
 
 }

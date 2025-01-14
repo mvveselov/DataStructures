@@ -18,8 +18,8 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Point\Point.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Point.cpp">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,7 +29,10 @@
     <ClInclude Include="Sorting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Point\Point.h">
+    <ClInclude Include="Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedLIst.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
