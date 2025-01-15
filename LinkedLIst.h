@@ -32,14 +32,59 @@ public:
 		}
 		std::cout << std::endl;
 	}
+
+	void insert(int e, int index) {
+		if (index == 0)
+			addToHead(e);
+		else {
+			Node* temp = new Node{ e, nullptr };
+			Node* cursor = head;
+			int i = 0;
+			while (i < index - 1) {
+				cursor = cursor->next;
+				i++;
+			}
+			temp->next = cursor->next;
+			cursor->next = temp;
+		}
+	}
+
+	void remove(int index) {
+		if (index == 0) {
+			removeFromHead();
+			return;
+		}
+		Node* cursor = head;
+		int i = 0;
+		while (i < index - 1) {
+			cursor = cursor->next;
+			i++;
+		}
+		Node* temp = cursor->next;
+		cursor->next = cursor->next->next;
+		delete temp;
+	}
+
+	bool empty() {
+		return head == nullptr;
+	}
+
+
+	void removeFromHead() {
+		Node* temp = head;
+		head = head->next;
+		delete temp;
+	}
+
+	int top() const {
+		return head->elem;
+	}
+
+
 	//Destructor
 	~LinkedList() {
-		Node* temp;
-		while (head != nullptr) {
-			temp = head;
-			head = head->next;
-			delete temp;
-		}
+		while (!empty())
+			removeFromHead();
 	}
 
 };

@@ -100,11 +100,42 @@ void main() {
 
 	
 	LinkedList list;
+	int listSize = 0;
 
-	list.addToHead(10);
-	list.addToHead(20);
+	list.addToHead(10); 
+	list.addToHead(20); 
+	list.addToHead(30); 
 
 	list.Show();
+	cout << "Insertion test. List size: "<<endl;
 
+	list.insert(5, 3);
+	list.Show();
+
+	list.insert(15, 2);
+	list.Show();
+
+	list.insert(40, 0);
+	list.Show();
+
+	list.removeFromHead();
+	list.Show();
+
+	list.insert(25, 1);
+	list.Show();
+
+	list.remove(1);
+	list.Show();
+
+	list.remove(0);
+	list.Show();
+
+	LinkedList list_reverse;
+	while (!list.empty()) {
+		list_reverse.addToHead(list.top());
+		list.removeFromHead();
+	}
+
+	list_reverse.Show();
 
 }
