@@ -11,6 +11,7 @@ class LinkedList {
 	
 public:
 	LinkedList() : head{ nullptr } {};
+
 	LinkedList(int e) {
 		head = new Node{};
 		head->elem = e;
@@ -40,8 +41,8 @@ public:
 			Node* temp = new Node{ e, nullptr };
 			Node* cursor = head;
 			int i = 0;
-			while (i < index - 1) {
-				cursor = cursor->next;
+			while (i < index - 1) { // недостаток списка по сравнению с массивом
+				cursor = cursor->next; 
 				i++;
 			}
 			temp->next = cursor->next;
@@ -65,7 +66,20 @@ public:
 		delete temp;
 	}
 
-	bool empty() {
+	int size() const {
+		int count{ 0 };
+		Node* cursor = head;
+		while (cursor != nullptr) {
+			cursor = cursor->next;
+			count++;
+		}
+		return count;
+	}
+
+
+
+
+	bool empty() const {
 		return head == nullptr;
 	}
 
@@ -81,10 +95,25 @@ public:
 	}
 
 
+
+	void reverse() {
+		LinkedList reverse;
+		while (!this->empty()) {
+			reverse.addToHead(this->top());
+			this->removeFromHead();
+		}
+		head = reverse.head;
+		reverse.head = nullptr;
+	}
+
+
 	//Destructor
 	~LinkedList() {
 		while (!empty())
 			removeFromHead();
 	}
+
+
+
 
 };

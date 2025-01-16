@@ -131,10 +131,12 @@
     <ClCompile Include="Point.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DLinkedList.h" />
     <ClInclude Include="LinkedLIst.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="PQueue.h" />
     <ClInclude Include="Sorting.h" />
+    <ClInclude Include="StackSLList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

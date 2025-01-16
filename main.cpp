@@ -3,6 +3,8 @@
 #include "Point.h"
 #include "LinkedLIst.h"
 #include <queue>
+#include "StackSLList.h"
+#include "DLinkedList.h"
 using namespace std;
 
 class LeftRight {
@@ -100,7 +102,7 @@ void main() {
 
 	
 	LinkedList list;
-	int listSize = 0;
+	
 
 	list.addToHead(10); 
 	list.addToHead(20); 
@@ -130,12 +132,36 @@ void main() {
 	list.remove(0);
 	list.Show();
 
-	LinkedList list_reverse;
-	while (!list.empty()) {
-		list_reverse.addToHead(list.top());
-		list.removeFromHead();
-	}
 
-	list_reverse.Show();
+	cout << "List size: " << list.size() << endl;
+	
+	list.reverse();
+	list.Show();
+
+
+	cout << "==========My stack=============" << endl;
+
+	StackSLList mystack;
+
+	mystack.push(50);
+	mystack.push(30);
+	mystack.push(10);
+
+	cout << "My top: " << mystack.top() << endl;
+
+	mystack.print();
+
+	cout << "Doubly Linked List" << endl;
+
+
+	DLinkedList<Point> dlist;
+
+	dlist.addFront(Point{1,2,3});
+	dlist.addFront(Point{ 4,5,6 });
+	dlist.addFront(Point{ 7,8,9 });
+
+
+	dlist.print();
+
 
 }

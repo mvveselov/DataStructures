@@ -6,6 +6,8 @@ using std::cout;
 using std::endl;
 
 
+
+
 class Point {
 	static int pointsCounter;
 	int x;
@@ -91,6 +93,8 @@ public:
 
 
 };
+
+
 
 
 
